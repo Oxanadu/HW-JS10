@@ -5,18 +5,18 @@ let message = text.substring(text.indexOf('=')+1, 30);
 let site = window.location.href.split('?')[0];  
 
 
-let messageSave = function(message){
-    let i = localStorage.length+1; 
-    let a = false;
+let messageSave = function(message){   //передача данных для записи
+    let i = localStorage.length+1;     // ключ
+    let a = false;                            
     if (message){
 
-        let b =  message+','+ a+','+ i;
+        let b =  message+','+ a+','+ i;  // значение
         localStorage.setItem(i,b);
-        window.location.replace(site);         
+        window.location.replace(site);  //перезагрузка на начальную страницу, чтобы избавиться от "хвоста" при случайном нажетии Enter       
     }    
 }
 
-let showMessage = function(){
+let showMessage = function(){         // создание   дивов
     let listBox = document.querySelector('.listbox');
 
         for(let i = 1; i <= localStorage.length; i++){
@@ -76,7 +76,7 @@ let changeCheck = function() { //реакция на onchange
     
 }
 
-let givProm = function () {
+let givProm = function () { // редактирование записи
     let c = document.querySelectorAll('.message');
     
     for(let i=0; i < localStorage.length; i++) {
@@ -94,7 +94,7 @@ let givProm = function () {
     
 }
 
-let clearAll = function () {
+let clearAll = function () {//очистка страницы и записи
     
     let a = document.querySelectorAll('.div');
     for(i = 0; i < localStorage.length; i++) {
